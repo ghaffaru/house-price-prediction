@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for, flash,redirect
 from form import PredictionForm
 import pandas as pd
 import numpy as np
@@ -17,7 +17,9 @@ def home():
                 form.condition.data, form.zipcode.data]
         model = joblib.load('model.joblib')
         result = model.predict([data])
-        return str(result).strip('[]')
+        actual_result = str(result).strip('[]') 
+        flash('Predicted Price: $'+ actual_result, 'success')
+        return redirect(url_for('home'))
     return render_template('index.html', form=form)
 
 app.run(debug=True)
