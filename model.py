@@ -217,9 +217,12 @@ test_predict = pd.DataFrame({
 
 #save the model
 #serialize model to json
-model_json = model.to_json()
-with open('model.json','w') as json_file:
-    json_file.write(model_json)
+# model_json = model.to_json()
+# with open('model.json','w') as json_file:
+#     json_file.write(model_json)
 
-#save weights to HDF5
-model.save_weights('model.h5')
+# #save weights to HDF5
+# model.save_weights('model.h5')
+
+from joblib import dump, load
+dump(model,'model.joblib')
