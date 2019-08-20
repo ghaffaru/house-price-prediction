@@ -3,6 +3,7 @@ from form import PredictionForm
 import pandas as pd
 import numpy as np
 import joblib
+import json
 
 app = Flask(__name__)
 
