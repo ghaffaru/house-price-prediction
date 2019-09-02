@@ -22,5 +22,6 @@ def home():
         flash('Predicted Price: $'+ actual_result, 'success')
         return redirect(url_for('home'))
     return render_template('index.html', form=form)
-
-app.run(debug=True)
+    
+if __name__ == "__main__":
+        app.run(debug=True)
